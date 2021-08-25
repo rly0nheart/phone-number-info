@@ -6,7 +6,7 @@
 ![Lines of code](https://img.shields.io/tokei/lines/github/rlyonheart/phonenumber_info)
 ![Twitter](https://img.shields.io/twitter/follow/rly0nheart?&style=flat&logo=twitter)
 
-Simple python script to get phone number information. 
+Simple python script to get phone number information from any country.
 
 
 
