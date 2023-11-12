@@ -58,7 +58,9 @@ SOFTWARE.
         ),
         formatter_class=RichHelpFormatter,
     )
-    parser.add_argument("phonenumber", help="target phone number")
+    parser.add_argument(
+        "phonenumber", help="target phone number with country oce (without `+`)"
+    )
     parser.add_argument(
         "-o", "--output", help="save results to a file", action="store_true"
     )
