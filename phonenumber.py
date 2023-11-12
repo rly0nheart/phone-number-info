@@ -1,34 +1,28 @@
-#!/usr/bin/env python3
-
-# Import modules
 import argparse
 import phonenumbers
 from phonenumbers import carrier, geocoder
 
-class Details:
-	def __init__(self,phonenumber):
-		# Parsing phone number
-		self.parse_phonenumber = phonenumbers.parse("+"+phonenumber)
+def parse_phone_number(phonenumber: str):
+	parsed_number = phonenumbers.parse("+" + self.phonenumber)
+	print(parsed_number)
+	print(f"Network provider: {carrier.name_for_number(self.parse_phonenumber,'en')}")
+	print(f"Location: {geocoder.description_for_number(self.parse_phonenumber,  'en')}")
 		
-	def main(self,phonenumber):
-		print(self.parse_phonenumber)
-		print(f"Network provider: {carrier.name_for_number(self.parse_phonenumber,'en')}")
-		print(f"Location: {geocoder.description_for_number(self.parse_phonenumber,  'en')}")
+	if args.output:
+		with open(f"{phonenumber}.txt", "w") as file:
+			file.write(
+				f"{self.parse_phonenumber}\n"
+				f"{carrier.name_for_number(self.parse_phonenumber,'en')}\n"
+				f"{geocoder.description_for_number(self.parse_phonenumber,  'en')}"
+			)
 		
-		# Saving results to a text file
-		if args.output:
-			with open(f"{phonenumber}.txt", "w") as file:
-				file.write(f"{self.parse_phonenumber}\n{carrier.name_for_number(self.parse_phonenumber,'en')}\n{geocoder.description_for_number(self.parse_phonenumber,  'en')}")
-		
+
 if __name__ == "__main__":
-	parser = argparse.ArgumentParser(description="Get phone number details")
+	parser = argparse.ArgumentParser(description="Simple script to get phone number information.")
 	parser.add_argument("phonenumber", help="target phone number")
-	parser.add_argument("-O","--output-results",help="save results to a file",dest="output",action="store_true")
+	parser.add_argument("-o","--output", help="save results to a file", action="store_true")
 	args = parser.parse_args()
-	phonenumber = args.phonenumber
-	output = args.output
 	try:
-		Details(phonenumber).main(phonenumber)
-		
+		parse_phone_number(phonenumber=args.phonenumber)
 	except Exception as e:
-		print(e)
+		print(f"An error occurred: {e}")
