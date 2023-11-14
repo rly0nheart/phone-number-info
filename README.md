@@ -6,7 +6,7 @@ Simple python script to get phone number information from any country.
 1. **Clone this repo**
 
 ```
-git clone https://github.com/rlyonheart/phone-number-info
+git clone https://github.com/rly0nheart/phone-number-info
 ```
 
 2. **Navigate to the cloned repo directory**
